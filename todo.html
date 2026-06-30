@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - Gestor de Tareas</title>
+    <link rel="stylesheet" href="todo-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-tasks"></i> Mi Lista de Tareas</h1>
+                <p class="subtitle">Organiza tu día de forma eficiente</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="Escribe una nueva tarea..."
+                        autocomplete="off"
+                    >
+                    <button id="addBtn" class="add-btn">
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                </div>
+                <div class="category-select">
+                    <label for="categoryFilter">Categoría:</label>
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="all">Todas</option>
+                        <option value="trabajo">Trabajo</option>
+                        <option value="personal">Personal</option>
+                        <option value="compras">Compras</option>
+                        <option value="salud">Salud</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <i class="fas fa-list-check"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Total</span>
+                        <span class="stat-value" id="totalCount">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-circle-check"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Completadas</span>
+                        <span class="stat-value" id="completedCount">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-circle-notch"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Pendientes</span>
+                        <span class="stat-value" id="pendingCount">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="all">
+                    <i class="fas fa-list"></i> Todas
+                </button>
+                <button class="tab-btn" data-tab="pending">
+                    <i class="fas fa-hourglass-end"></i> Pendientes
+                </button>
+                <button class="tab-btn" data-tab="completed">
+                    <i class="fas fa-check-double"></i> Completadas
+                </button>
+            </div>
+
+            <!-- Tasks List -->
+            <section class="tasks-section">
+                <div id="tasksList" class="tasks-list">
+                    <!-- Tasks will be inserted here -->
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No hay tareas aquí</p>
+                    <small>Agrega una nueva tarea para comenzar</small>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-section">
+                <button id="clearCompleted" class="action-btn clear-btn">
+                    <i class="fas fa-trash-alt"></i> Limpiar Completadas
+                </button>
+                <button id="deleteAll" class="action-btn delete-btn">
+                    <i class="fas fa-trash"></i> Eliminar Todo
+                </button>
+                <button id="exportBtn" class="action-btn export-btn">
+                    <i class="fas fa-download"></i> Exportar
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para editar tarea -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Tarea</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editTaskInput" class="task-input" placeholder="Edita tu tarea...">
+                <select id="editCategoryInput" class="category-filter">
+                    <option value="trabajo">Trabajo</option>
+                    <option value="personal">Personal</option>
+                    <option value="compras">Compras</option>
+                    <option value="salud">Salud</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <textarea id="editDescriptionInput" class="task-description" placeholder="Descripción (opcional)"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEditBtn" class="action-btn cancel-btn">Cancelar</button>
+                <button id="saveEditBtn" class="action-btn save-btn">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Todo List App | Tus datos se guardan automáticamente</p>
+    </footer>
+
+    <script src="todo-script.js"></script>
+</body>
+</html>
