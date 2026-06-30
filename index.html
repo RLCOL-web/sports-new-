@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsPro - Noticias Deportivas en Vivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-section">
+                    <h1 class="logo"><i class="fas fa-fire"></i> SportsPro</h1>
+                    <p class="tagline">Noticias Deportivas en Tiempo Real</p>
+                </div>
+                <nav class="nav-main">
+                    <ul>
+                        <li><a href="#inicio" class="active">Inicio</a></li>
+                        <li><a href="#futbol">⚽ Fútbol</a></li>
+                        <li><a href="#baloncesto">🏀 Baloncesto</a></li>
+                        <li><a href="#tenis">🎾 Tenis</a></li>
+                        <li><a href="#otros">🏆 Otros</a></li>
+                    </ul>
+                </nav>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar noticias...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="carousel-section">
+        <div class="carousel">
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button class="carousel-btn prev" id="prevBtn">❮</button>
+            <button class="carousel-btn next" id="nextBtn">❯</button>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <h2>Selecciona tu deporte favorito</h2>
+            <div class="sports-filters">
+                <button class="filter-btn active" data-sport="all">Todos</button>
+                <button class="filter-btn" data-sport="futbol">⚽ Fútbol</button>
+                <button class="filter-btn" data-sport="baloncesto">🏀 Baloncesto</button>
+                <button class="filter-btn" data-sport="tenis">🎾 Tenis</button>
+                <button class="filter-btn" data-sport="beisbol">⚾ Béisbol</button>
+                <button class="filter-btn" data-sport="hockey">🏒 Hockey</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <section class="news-section">
+                    <div class="section-header">
+                        <h2>📰 Últimas Noticias</h2>
+                        <span class="live-indicator"><i class="fas fa-dot-circle"></i> EN VIVO</span>
+                    </div>
+                    <div class="news-grid" id="newsGrid"></div>
+                </section>
+
+                <aside class="sidebar">
+                    <div class="sidebar-card live-scores">
+                        <h3><i class="fas fa-clock"></i> Resultados en Vivo</h3>
+                        <div id="liveScores" class="scores-list"></div>
+                    </div>
+
+                    <div class="sidebar-card trending">
+                        <h3><i class="fas fa-flame"></i> Tendencias</h3>
+                        <div id="trendingTopics" class="trending-list"></div>
+                    </div>
+
+                    <div class="sidebar-card top-stories">
+                        <h3><i class="fas fa-star"></i> Lo Más Visto</h3>
+                        <div id="topStories" class="top-stories-list"></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre SportsPro</h4>
+                    <p>Tu fuente confiable para noticias deportivas en tiempo real.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociales</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SportsPro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
